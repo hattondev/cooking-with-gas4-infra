@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cooking-with-gas4-svc
+  labels:
+    app: cooking-with-gas4
+    version: 0.0.1
+    backstage.io/kubernetes-id: cooking-with-gas4
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: cooking-with-gas4

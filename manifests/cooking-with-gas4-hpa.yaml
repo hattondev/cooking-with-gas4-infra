@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: cooking-with-gas4-hpa
+  labels:
+    app: cooking-with-gas4
+    version: 0.0.1
+    backstage.io/kubernetes-id: cooking-with-gas4
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: cooking-with-gas4
+ minReplicas: 1
+ maxReplicas: 4
+ targetCPUUtilizationPercentage: 75
